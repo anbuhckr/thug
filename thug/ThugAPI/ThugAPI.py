@@ -470,7 +470,7 @@ class ThugAPI:
                 dft = DFT(window)
                 dft.run()
 
-    def run_local(self, url):
+    def run_local(self, url, width=412, height=732):
         from bs4.element import NavigableString
         from bs4.element import CData
         from bs4.element import Script
@@ -530,11 +530,11 @@ class ThugAPI:
             log.ThugLogging.Features.add_whitespaces_count(whitespaces_count)
 
         doc = w3c.parseString(html)
-        window = Window("about:blank", doc, personality=log.ThugOpts.useragent)
+        window = Window("about:blank", doc, personality=log.ThugOpts.useragent, width=width, height=height)
         window.open()
         self.__run(window)
 
-    def run_remote(self, url):
+    def run_remote(self, url, width=412, height=732):
         self.__reset_classifiers_matches()
 
         log.last_url = None
@@ -556,7 +556,7 @@ class ThugAPI:
         log.HTTPSession = HTTPSession()
 
         doc = w3c.parseString("")
-        window = Window(log.ThugOpts.referer, doc, personality=log.ThugOpts.useragent)
+        window = Window(log.ThugOpts.referer, doc, personality=log.ThugOpts.useragent, width=width, height=height)
         window = window.open(url)
         if window:
             self.__run(window)
