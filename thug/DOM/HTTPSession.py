@@ -246,6 +246,9 @@ class HTTPSession:
         for name, value in headers.items():
             http_headers[name] = value
 
+        for name, value in log.ThugOpts.headers.items():
+            http_headers[name] = value
+
         return http_headers
 
     def fetch_ssl_certificate(self, url):
