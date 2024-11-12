@@ -1,7 +1,7 @@
 Thug
 ====
 
-|version badge| |github badge| |codefactor badge| |codecov badge| |bandit badge|
+|github badge| |codefactor badge| |codecov badge| |bandit badge|
 
 The number of client-side attacks has grown significantly in the past few years
 shifting focus on poorly protected vulnerable clients. Just as the most known
@@ -14,6 +14,15 @@ exploited by an attacker's content.
 
 Thug is a Python low-interaction honeyclient aimed at mimicking the behavior of a
 web browser in order to detect and emulate malicious contents.
+
+Installation
+-------------
+
+To install thug from GitHub:
+
+.. code-block:: bash
+
+    python3 -m pip install -U git+https://github.com/anbuhckr/thug.git
 
 
 Documentation
