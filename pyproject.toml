@@ -53,6 +53,7 @@ dependencies = [
     "pymongo==4.10.1",
     "pysocks==1.7.1",
     "python-magic==0.4.27",
+    "python-magic-bin==0.4.14",
     "rarfile==4.2",
     "requests==2.32.3",
     "requests-futures==1.0.1",
