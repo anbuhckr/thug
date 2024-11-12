@@ -20,19 +20,21 @@ import os
 import sys
 import signal
 import logging
-
+import threading
 
 class Watchdog:
     def __init__(self, timeout, callback=None):
         self.timeout = timeout
         self.callback = callback
+        self.timer = None
 
     def __enter__(self):
-        signal.signal(signal.SIGALRM, self.handler)
-        signal.alarm(self.timeout)
+        self.timer = threading.Timer(self.timeout, self.handler)
+        self.timer.start()
 
     def __exit__(self, exception_type, exception_value, traceback):
-        signal.alarm(0)
+        if self.timer:
+            self.timer.cancel()
 
     def handler(self, signum, frame):
         thugLog = logging.getLogger("Thug")
